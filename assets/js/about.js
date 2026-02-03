@@ -1,43 +1,88 @@
-import { initCommon } from './main.js';
+/* Beyond Systems - About Page JavaScript */
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize common site features
-    initCommon();
+// ==========================================
+// INITIALIZE ABOUT PAGE
+// ==========================================
 
-    // ===== About Page Animations =====
-    const fadeInElements = document.querySelectorAll('.fade-in');
-    const slideInElements = document.querySelectorAll('.slide-in');
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('About Page - Initialized');
+    
+    // About page specific functionality
+    initAboutAnimations();
+    initStatCounters();
+});
 
-    // IntersectionObserver for fade-in and slide-in animations
-    const observer = new IntersectionObserver(
-        (entries, obs) => {
-            entries.forEach((entry, index) => {
+// ==========================================
+// ABOUT PAGE ANIMATIONS
+// ==========================================
+
+function initAboutAnimations() {
+    // Add staggered animation to mission cards
+    const missionCards = document.querySelectorAll('.mission-card');
+    
+    missionCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+    });
+
+    // Add hover effects to why choose cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
+
+// ==========================================
+// STAT COUNTERS (If you add stats later)
+// ==========================================
+
+function initStatCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    if (counters.length === 0) return;
+    
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = target / 200;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const el = entry.target;
-
-                    // Add a staggered delay for better effect
-                    setTimeout(() => {
-                        el.classList.add('active');
-                    }, index * 150);
-
-                    // Stop observing once element is animated
-                    obs.unobserve(el);
+                    updateCount();
+                    counterObserver.unobserve(entry.target);
                 }
             });
-        },
-        {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px',
-        }
-    );
+        }, { threshold: 0.5 });
 
-    fadeInElements.forEach(el => observer.observe(el));
-    slideInElements.forEach(el => observer.observe(el));
-
-    // ===== Optional: Team member hover effect =====
-    const teamCards = document.querySelectorAll('.team-card');
-    teamCards.forEach(card => {
-        card.addEventListener('mouseenter', () => card.classList.add('hovered'));
-        card.addEventListener('mouseleave', () => card.classList.remove('hovered'));
+        counterObserver.observe(counter);
     });
+}
+
+// ==========================================
+// PARALLAX EFFECT (Optional)
+// ==========================================
+
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const pageHeader = document.querySelector('.page-header');
+    
+    if (pageHeader && scrolled < 800) {
+        pageHeader.style.transform = `translateY(${scrolled * 0.3}px)`;
+    }
 });

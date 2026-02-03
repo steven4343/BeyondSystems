@@ -1,171 +1,282 @@
 # Beyond Systems Website
 
-Professional static website for Beyond Systems - a leading provider of mining solutions, industrial equipment, and security services in Zambia.
+Professional corporate website for Beyond Systems - Mining Solutions & Security Services in Solwezi, Zambia.
 
-## Project Structure
+## 🏗️ Project Structure
 
 ```
 beyond-systems-website/
 │
-├── index.html
-├── about.html
-├── contact.html
+├── index.html              # Homepage
+├── about.html              # About Us page
+├── contact.html            # Contact page
 │
 ├── assets/
 │   ├── css/
-│   │   ├── style.css
-│   │   ├── about.css
-│   │   └── contact.css
+│   │   ├── style.css      # Global/shared styles (nav, footer, buttons, animations)
+│   │   ├── about.css      # About page specific styles
+│   │   └── contact.css    # Contact page specific styles
 │   │
 │   ├── js/
-│   │   ├── main.js
-│   │   ├── about.js
-│   │   └── contact.js
+│   │   ├── main.js        # Global JavaScript (navigation, hamburger, scroll animations)
+│   │   ├── about.js       # About page specific JavaScript
+│   │   └── contact.js     # Contact page specific JavaScript (form handling)
 │   │
 │   ├── images/
-│   │   ├── Logo.jpeg
-│   │   └── ...other images
+│   │   ├── Logo.jpeg      # Company logo
+│   │   ├── WANAKE.png     # WANAWAKE distributor logo
+│   │   ├── ELORRY.png     # HENAN ELLORY distributor logo
+│   │   ├── ARTELCN.png    # JILIN ARTEL distributor logo
+│   │   └── map.png        # Map image for contact page
 │   │
-│   └── fonts/
+│   └── fonts/             # Custom fonts (if needed)
 │
-├── README.md
-└── .gitignore
+├── README.md              # This file
+└── .gitignore             # Git ignore file
+```
 
+## ✨ Features
 
-## Features
+### 📄 **Pages**
+- **Homepage** - Services showcase, distributors, chemicals, IT services
+- **About** - Company info, mission, vision, why choose us
+- **Contact** - Contact form, details, map
 
-### Homepage (index.html)
-- Hero section with company tagline
-- Authorized Distributors showcase
-- Products & Services overview
-- Security Solutions section
-- Mining Locations served
-- Footer with quick links
+### 🎨 **Design**
+- Fully responsive (desktop, tablet, mobile)
+- Hamburger menu for mobile devices
+- Scroll animations on all sections
+- Modern green (#00cc66) brand colors
+- Professional typography (Archivo + DM Sans)
 
-### About Page (about.html)
-- Company mission, vision, and values
-- Why choose Beyond Systems
-- Company highlights and expertise
-- Call-to-action sections
+### 🔧 **Technical**
+- **Modular Structure** - Separate CSS/JS per page
+- **Vanilla JavaScript** - No dependencies
+- **Clean Code** - Well organized and commented
+- **Performance** - Optimized for fast loading
 
-### Contact Page (contact.html)
-- Contact form with validation
-- Contact information display
-- Business hours
-- Map section placeholder
-- Services available list
+## 🚀 Quick Start
 
-## Design Features
+### 1. Add Your Images
 
-- **Modern, professional design** with green brand color (#00cc66)
-- **Fully responsive** layout for mobile, tablet, and desktop devices
-- **Smooth animations** and hover effects
-- **Clean typography** using Archivo and DM Sans fonts
-- **Optimized for mining/industrial sector** aesthetics
+Place these files in `assets/images/`:
+- Logo.jpeg
+- WANAKE.png
+- ELORRY.png
+- ARTELCN.png
+- map.png (optional - screenshot from Google Maps)
 
-## Technologies Used
+### 2. Update Contact Information
 
-- HTML5
-- CSS3 (External stylesheet)
-- Vanilla JavaScript
-- Google Fonts (Archivo, DM Sans)
+Edit these files:
+- `index.html` (footer)
+- `about.html` (footer)
+- `contact.html` (contact details)
 
-## Setup Instructions
+Replace:
+- `+260 975 913 592` → Your phone
+- `info@beyondsystems.co.zm` → Your email
+- `jkayivwa2@gmail.com` → Your email
+- `Solwezi, Zambia` → Your location
 
-1. **Download all files** maintaining the folder structure
-2. **Add your logo** to `assets/images/logo.png`
-3. **Update contact information** in all HTML files:
-   - Replace `+260 XXX XXX XXX` with actual phone number
-   - Update email addresses if different
-   - Add specific office address
-4. **Optional**: Connect contact form to backend service
+### 3. Deploy
 
-## Customization Guide
+Upload to any web host or use:
+- **Netlify** (drag & drop)
+- **Vercel**
+- **GitHub Pages**
+- Traditional hosting (FTP)
 
-### Colors
-Edit CSS variables in `assets/css/style.css`:
+## 📱 Responsive Design
+
+### Breakpoints:
+- Desktop: 1024px+
+- Tablet: 768px - 1023px
+- Mobile: < 768px (hamburger menu activated)
+
+### Testing:
+- Resize browser to test
+- Use browser DevTools (F12)
+- Test on actual mobile devices
+
+## 🎯 File Responsibilities
+
+### CSS Files
+
+#### **style.css** (Global)
+- CSS variables
+- Reset styles
+- Navigation (desktop & mobile)
+- Hamburger menu
+- Footer
+- Buttons & CTAs
+- Scroll animations
+- Homepage sections
+- Responsive breakpoints
+
+#### **about.css** (About Page)
+- Page header
+- About section layout
+- Mission/vision cards
+- Why choose section
+- CTA section
+
+#### **contact.css** (Contact Page)
+- Page header
+- Contact form styling
+- Contact details layout
+- Map section
+- Form validation styles
+
+### JavaScript Files
+
+#### **main.js** (Global)
+- Hamburger menu toggle
+- Scroll animations
+- Smooth scrolling
+- Navbar scroll effects
+- Active nav link highlighting
+
+#### **about.js** (About Page)
+- About page animations
+- Stat counters (optional)
+- Parallax effects
+
+#### **contact.js** (Contact Page)
+- Form submission handling
+- Form validation
+- Success/error messages
+- Map interaction
+
+## 🔧 Customization
+
+### Change Colors
+
+Edit `assets/css/style.css`:
 ```css
 :root {
-    --primary-green: #00cc66;
-    --dark-bg: #0a0f0d;
-    --text-dark: #1a1a1a;
-    --text-light: #f5f5f5;
+    --primary-green: #00cc66;   /* Brand color */
+    --dark-bg: #0a0f0d;         /* Dark background */
+    --text-dark: #1a1a1a;       /* Text color */
+    --text-light: #f5f5f5;      /* Light text */
 }
 ```
 
-### Content
-- Edit text content directly in HTML files
-- Update services, products, and distributor information
-- Modify section layouts as needed
+### Add New Sections
 
-### Images
-- Add company logo to `assets/images/logo.png`
-- Add service/product images to `assets/images/`
-- Update image references in HTML files
+1. Add HTML in appropriate page
+2. Add styles in relevant CSS file
+3. Add JavaScript if needed
+4. Add to scroll animations in main.js
 
-## Browser Support
+### Connect Contact Form
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+Edit `assets/js/contact.js`:
+- Replace the commented API call with your backend
+- Or use services like Formspree, FormSubmit, EmailJS
 
-## Contact Form
+## 📞 Contact Information
 
-The contact form currently shows a JavaScript alert on submission. To make it functional:
+- **Location:** Solwezi, Zambia
+- **Phone:** +260 975 913 592
+- **Email:** info@beyondsystems.co.zm
+- **Email:** jkayivwa2@gmail.com
 
-1. **Option 1**: Use a form service like Formspree, Form submit, or Netlify Forms
-2. **Option 2**: Connect to your own backend API
-3. **Option 3**: Use email services like EmailJS
+## 🐛 Troubleshooting
 
-Example integration with Formspree:
-```html
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+### Hamburger Menu Not Working?
+1. Open browser console (F12)
+2. Check for JavaScript errors
+3. Verify screen width < 768px
+4. Check main.js is loading
+
+### Images Not Showing?
+1. Check file names match exactly (case-sensitive)
+2. Verify images are in `assets/images/`
+3. Clear browser cache (Ctrl+F5)
+
+### Styles Not Loading?
+1. Check CSS file paths in HTML
+2. Clear browser cache
+3. Check browser console for 404 errors
+
+### Form Not Submitting?
+1. Check contact.js is loading
+2. Open browser console for errors
+3. Form currently shows alert - needs backend integration
+
+## 📝 Browser Support
+
+- ✅ Chrome (latest)
+- ✅ Firefox (latest)
+- ✅ Safari (latest)
+- ✅ Edge (latest)
+- ✅ Mobile browsers
+
+## 🔒 Security
+
+- All user input validated
+- No inline JavaScript
+- Prepared for CSP headers
+- Ready for HTTPS
+
+## 📦 Deployment
+
+### Netlify (Recommended)
+```bash
+# Upload folder to netlify.com
+# Instant deployment
+# Free SSL certificate
 ```
 
-## Deployment
+### Traditional Hosting
+```bash
+# Upload via FTP/cPanel
+# Point to index.html
+# Enable HTTPS
+```
 
-This is a static website and can be deployed to:
-- **Netlify** (recommended - free tier available)
-- **Vercel** (recommended - free tier available)
-- **GitHub Pages** (free)
-- **Traditional web hosting** (any hosting service)
-- **AWS S3** + CloudFront
-- **Firebase Hosting**
+## 🛠️ Development
 
-### Quick Deploy to Netlify:
-1. Create account at netlify.com
-2. Drag and drop the `client-website` folder
-3. Your site will be live in seconds!
+### Testing Locally
+```bash
+# Use any local server:
+# Python: python -m http.server 8000
+# Node: npx serve
+# VS Code: Live Server extension
+```
 
-## Maintenance
+### Making Changes
+1. Edit HTML/CSS/JS files
+2. Refresh browser to test
+3. Test on mobile (browser DevTools)
+4. Upload changes to server
 
-### Regular Updates
-- Update contact information
-- Add new services/products
-- Update distributor listings
-- Add news/blog posts (optional)
-- Update copyright year
+## 📚 Additional Resources
 
-### Performance
-- Optimize images before uploading
-- Minify CSS/JS for production (optional)
-- Enable caching on your hosting service
+- [HTML Documentation](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-## Support
+## ✅ Pre-Launch Checklist
 
-For questions or customization requests, contact:
-- Email: info@beyondsystems.co.zm
-- Phone: +260 XXX XXX XXX
+- [ ] All images added to assets/images/
+- [ ] Contact information updated
+- [ ] Test on desktop browser
+- [ ] Test on mobile device
+- [ ] Hamburger menu works
+- [ ] All navigation links work
+- [ ] Contact form validates
+- [ ] Map displays/fallback works
+- [ ] All sections scroll animate
+- [ ] No console errors
 
-## License
+## 📄 License
 
 © 2026 Beyond Systems. All rights reserved.
 
 ---
 
-**Built for:** Beyond Systems
-**Project:** Corporate Website
-**Version:** 1.0
-**Last Updated:** January 2026
+**Built with** ❤️ **for Beyond Systems**  
+**Location:** Solwezi, Zambia  
+**Tagline:** Innovative Reliable Solutions
