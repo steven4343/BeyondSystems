@@ -28,6 +28,51 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Scroll Animation Classes */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-animate-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-animate-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-animate-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -53,6 +98,7 @@ html {
     display: flex;
     align-items: center;
     gap: 1rem;
+    z-index: 1001;
 }
 
 .logo-img {
@@ -74,6 +120,38 @@ html {
     color: var(--text-light);
     opacity: 0.8;
     font-weight: 400;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-green);
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 .nav-menu {
@@ -328,17 +406,33 @@ section {
 }
 
 .distributor-card {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border-left: 4px solid var(--primary-green);
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .distributor-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+.distributor-logo {
+    height: 90px;
+    max-width: 220px;
+    object-fit: contain;
+    margin-bottom: 1.3rem;
+    filter: grayscale(15%);
+    transition: all 0.35s ease;
+}
+
+.distributor-card:hover .distributor-logo {
+    filter: grayscale(0%);
+    transform: scale(1.05);
 }
 
 .distributor-number {
@@ -376,14 +470,13 @@ section {
 
 .auth-badge {
     display: inline-block;
-    background: linear-gradient(135deg, var(--primary-green), #00e673);
-    color: white;
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
     margin-top: 1rem;
-    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1e7f4f, #2aa96b);
+    border-radius: 50px;
     letter-spacing: 0.5px;
 }
 
@@ -500,6 +593,102 @@ section {
     font-size: 1.4rem;
     color: var(--primary-green);
     font-weight: 700;
+}
+
+/* Industrial Chemicals Section */
+.chemicals-section {
+    background: white;
+}
+
+.chemicals-intro {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    font-size: 1.1rem;
+    color: var(--gray-700);
+}
+
+.chemicals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.chemical-card {
+    background: var(--gray-100);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-green);
+}
+
+.chemical-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.chemical-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.chemical-card h3 {
+    color: var(--text-dark);
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+}
+
+.chemical-specs {
+    color: var(--gray-700);
+}
+
+.chemical-specs p {
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.chemical-specs strong {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.chemicals-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: var(--gray-100);
+    border-radius: 12px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.feature-icon {
+    color: var(--primary-green);
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.feature-item p {
+    color: var(--gray-700);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* IT Services Section */
+.it-services-section {
+    background: var(--gray-100);
 }
 
 /* About Section */
@@ -958,77 +1147,6 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: rgba(245, 245, 245, 0.6);
 }
-/* =========================================
-   BRAND LOGO & AUTHORIZED DISTRIBUTORS
-========================================= */
-
-
-/* ===== AUTHORIZED DISTRIBUTOR CARDS ===== */
-.distributor-card {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-    transition: all 0.35s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.distributor-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
-}
-
-
-/* ===== DISTRIBUTOR LOGOS ===== */
-.distributor-logo {
-    height: 90px;
-    max-width: 220px;
-    object-fit: contain;
-    margin-bottom: 1.3rem;
-    filter: grayscale(15%);
-    transition: all 0.35s ease;
-}
-
-.distributor-card:hover .distributor-logo {
-    filter: grayscale(0%);
-    transform: scale(1.05);
-}
-
-
-/* ===== AUTHORIZATION BADGE ===== */
-.auth-badge {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.35rem 0.85rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #ffffff;
-    background: linear-gradient(135deg, #1e7f4f, #2aa96b);
-    border-radius: 50px;
-    letter-spacing: 0.5px;
-}
-
-
-/* ===== RESPONSIVE LOGO HANDLING ===== */
-@media (max-width: 768px) {
-    .logo-img {
-        height: 42px;
-    }
-
-    .logo-text .logo {
-        font-size: 1.4rem;
-    }
-
-    .distributor-logo {
-        height: 75px;
-    }
-
-    .distributor-card {
-        padding: 1.6rem;
-    }
-}
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -1042,7 +1160,46 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
     .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(10, 15, 13, 0.98);
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+        gap: 0;
+        padding: 2rem 0;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu a {
+        font-size: 1rem;
+        display: block;
+        padding: 0.5rem 2rem;
+    }
+
+    .nav-menu a::after {
         display: none;
     }
 
@@ -1085,6 +1242,26 @@ footer {
 
     .mission-grid {
         grid-template-columns: 1fr;
+    }
+
+    .logo-img {
+        height: 42px;
+    }
+
+    .logo-text .logo {
+        font-size: 1.4rem;
+    }
+
+    .distributor-logo {
+        height: 75px;
+    }
+
+    .distributor-card {
+        padding: 1.6rem;
+    }
+
+    .tagline {
+        font-size: 0.65rem;
     }
 }
 

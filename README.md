@@ -5,24 +5,32 @@ Professional static website for Beyond Systems - a leading provider of mining so
 ## Project Structure
 
 ```
-client-website/
+beyond-systems-website/
 │
-├── index.html        # Homepage with services overview
-├── about.html        # About Us page
-├── contact.html      # Contact page with form
+├── index.html
+├── about.html
+├── contact.html
 │
 ├── assets/
 │   ├── css/
-│   │   └── style.css    # Main stylesheet
+│   │   ├── style.css
+│   │   ├── about.css
+│   │   └── contact.css
 │   │
 │   ├── js/
-│   │   └── main.js      # JavaScript functionality
+│   │   ├── main.js
+│   │   ├── about.js
+│   │   └── contact.js
 │   │
-│   └── images/
-│       └── (logo and images to be added)
+│   ├── images/
+│   │   ├── Logo.jpeg
+│   │   └── ...other images
+│   │
+│   └── fonts/
 │
-└── README.md
-```
+├── README.md
+└── .gitignore
+
 
 ## Features
 
